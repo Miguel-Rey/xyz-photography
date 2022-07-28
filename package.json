@@ -1,0 +1,19 @@
+{
+  "name": "xyz-photography",
+  "version": "0.0.1",
+  "description": "xyz-photography",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miguel-Rey/xyz-photography.git"
+  },
+  "author": "Miguel-Rey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miguel-Rey/xyz-photography/issues"
+  },
+  "homepage": "https://github.com/Miguel-Rey/xyz-photography#readme"
+}
