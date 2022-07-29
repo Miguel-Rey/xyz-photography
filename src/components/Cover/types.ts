@@ -1,6 +1,6 @@
 import { LinkBoxProps } from "../LinkBox/types";
 
-export type ProjectCoverProps = LinkBoxProps & {
+export type CoverProps = LinkBoxProps & {
   image: {
     src: string;
     alt?: string;

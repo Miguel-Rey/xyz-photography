@@ -1,7 +1,10 @@
-import { ProjectCoverProps } from "../ProjectCover/types"
+import { CoverProps } from "../Cover/types"
+import { LinkBoxProps } from "../LinkBox/types";
+
+export type Slide = CoverProps & LinkBoxProps;
 
 export type CarouselProps = {
-  slides: ProjectCoverProps[],
+  slides: Slide[],
   
   title?: string;
 }

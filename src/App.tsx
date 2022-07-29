@@ -1,17 +1,11 @@
 import React from 'react';
 import { Carousel } from './components';
-import { ProjectCoverProps } from './components/ProjectCover/types';
+import { Slide } from './components/Carousel/types';
 import './styles/fonts.css';
 import './styles/reset.css';
 
-// import image01 from './assets/images/image01.jpg';
-// import image02 from './assets/images/image02.jpg';
-// import image03 from './assets/images/image03.jpg';
-// import image04 from './assets/images/image04.jpg';
-// import image05 from './assets/images/image05.jpg';
-
 // TODO REPLACE WITH WEBPACK LOADER CONFIG
-const mapImagesSource = (data: ProjectCoverProps[]) => data.map((slide) => ({
+const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
   ...slide,
   image: {
     ...slide.image,
@@ -19,7 +13,7 @@ const mapImagesSource = (data: ProjectCoverProps[]) => data.map((slide) => ({
   }
 }));
 
-const sliderData: ProjectCoverProps[] = [
+const sliderData: Slide[] = [
   {
     image: {
       src: 'assets/images/image01.jpg',

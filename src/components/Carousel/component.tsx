@@ -1,46 +1,13 @@
 import React, { useState } from 'react';
 import { CarouselProps } from './types';
-import styled from 'styled-components';
-import { Thumbnail, ProjectCover, Indicator } from '../index';
+import { Thumbnail, Cover, Indicator } from '../index';
+import {
+  IndicatorWrapper,
+  CarouselTitle,
+  PrevButton,
+  NextButton,
+} from './styles';
 
-const CarouselButton = styled.button`
-  position: absolute;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-`
-
-const NextButton = styled(CarouselButton)`
-  top: 16px;
-  right: 16px;
-`
-
-const PrevButton = styled(CarouselButton)`
-  bottom: 16px;
-  left: 16px;
-`
-
-const CarouselTitle = styled.h1`
-  position: absolute;
-  left: 16px;
-  top: 16px;
-
-  font-family: 'Tungsten';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  color: #FFFFFF;
-`
-
-const IndicatorWrapper = styled.span`
-  display: flex;
-  gap: 8px;
-  text-align: center;
-`;
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides, title } = props;
@@ -61,7 +28,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
   return (
     <div>
-      <ProjectCover 
+      <Cover 
         {...slides[activeSlide]} 
         subtitle={subtitle}
       />      
