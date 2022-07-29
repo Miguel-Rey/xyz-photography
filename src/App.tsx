@@ -26,6 +26,7 @@ const sliderData: ProjectCoverProps[] = [
       alt: 'alt-01',
     },
     title: 'Everyday Flowers',
+    subtitle: '1 of 5',
     // author: 'Johanna Hobel for Vouge',
     // date: 'Jun 2019',
     // link: {
