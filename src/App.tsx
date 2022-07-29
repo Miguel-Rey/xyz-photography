@@ -1,13 +1,11 @@
 import React from 'react';
-
-// import image01 from './assets/images/image01.jpg';
-// import image02 from './assets/images/image02.jpg';
-// import image03 from './assets/images/image03.jpg';
-// import image04 from './assets/images/image04.jpg';
-// import image05 from './assets/images/image05.jpg';
+import { Carousel } from './components';
+import { Slide } from './components/Carousel/types';
+import './styles/fonts.css';
+import './styles/reset.css';
 
 // TODO REPLACE WITH WEBPACK LOADER CONFIG
-const mapImagesSource = (data) => data.map((slide) => ({
+const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
   ...slide,
   image: {
     ...slide.image,
@@ -15,7 +13,7 @@ const mapImagesSource = (data) => data.map((slide) => ({
   }
 }));
 
-const sliderData = [
+const sliderData: Slide[] = [
   {
     image: {
       src: 'assets/images/image01.jpg',
@@ -24,10 +22,8 @@ const sliderData = [
     title: 'Everyday Flowers',
     author: 'Johanna Hobel for Vouge',
     date: 'Jun 2019',
-    link: {
-      href: '#',
-      anchor: 'Have a look',
-    }
+    href: '/everyday-flowers',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -37,10 +33,8 @@ const sliderData = [
     title: 'The wilder night',
     author: 'Johanna Hobel for Wild',
     date: 'Dec 2019',
-    link: {
-      href: '#',
-      anchor: 'Have a look',
-    }
+    href: '/the-wilder-night',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -50,10 +44,8 @@ const sliderData = [
     title: 'Smooth Memories',
     author: 'Johanna Hobel for Chanel',
     date: 'Feb 2020',
-    link: {
-      href: '#',
-      anchor: 'Have a look',
-    }
+    href: '/smooth-memories',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -63,10 +55,8 @@ const sliderData = [
     title: 'The Future Universe',
     author: 'Johanna Hobel for On',
     date: 'Apr 2020',
-    link: {
-      href: '#',
-      anchor: 'Have a look',
-    }
+    href: '/the-future-universe',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -76,20 +66,17 @@ const sliderData = [
     title: 'She was born Urban',
     author: 'Johanna Hobel for Si',
     date: 'Dec 2021',
-    link: {
-      href: '#',
-      anchor: 'Have a look',
-    }
+    href: '/she-was-born-urban',
+    anchor: 'Have a look',
   }
 ];
 
 function App() {
   return (
-    <div className="App">
-      {mapImagesSource(sliderData)?.map((slide) => (
-        <PhotographySlide {...slide} />
-      ))}
-    </div>
+    <Carousel 
+      title="XYZ Photography"
+      slides={mapImagesSource(sliderData) } 
+    />
   );
 }
 
