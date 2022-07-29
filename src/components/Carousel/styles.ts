@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
+export const CarouselWrapper = styled.div`
+  cursor: none;
+`
+
 export const CarouselButton = styled.button`
   position: absolute;
   padding: 0;
   background: none;
   border: none;
-  cursor: pointer;
+  z-index: 1;
+  cursor: none;
 `
 
 export const NextButton = styled(CarouselButton)`
