@@ -33,12 +33,16 @@ const HighlightedImage = styled.img`
 `;
 
 const TextBox = styled.div`
-  width: 844px;
+  width: 852px;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Title = styled.h2`

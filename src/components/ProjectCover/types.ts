@@ -7,5 +7,5 @@ export type ProjectCoverProps = LinkBoxProps & {
   }
   title: string;
 
-  subtitle?: string;  
+  subtitle?: JSX.Element;  
 }
