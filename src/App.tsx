@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectCover } from './components';
+import { ProjectCover, Carousel } from './components';
 import { ProjectCoverProps } from './components/ProjectCover/types';
 import './styles/fonts.css';
 import './styles/reset.css';
@@ -90,11 +90,11 @@ const sliderData: ProjectCoverProps[] = [
 
 function App() {
   return (
-    <div className="App">
+    <Carousel>
       {mapImagesSource(sliderData)?.map((slide) => (
         <ProjectCover {...slide} />
       ))}
-    </div>
+    </Carousel>
   );
 }
 

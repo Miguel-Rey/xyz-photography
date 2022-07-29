@@ -53,6 +53,7 @@ const Title = styled.h2`
   -webkit-text-stroke: 1px white;
   background: linear-gradient(to right, transparent 19.5%, white 19.5%, white 80.5%, transparent 80.5%);
   -webkit-background-clip: text;
+  background-clip: text;
 `;
 
 const Subtitle = styled.p`
