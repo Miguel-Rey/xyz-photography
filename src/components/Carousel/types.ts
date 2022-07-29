@@ -1,4 +1,6 @@
+import { ProjectCoverProps } from "../ProjectCover/types"
+
 export type CarouselProps = {
-  children: JSX.Element[],
+  slides: ProjectCoverProps[],
   active?: number,
 }

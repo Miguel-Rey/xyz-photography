@@ -1,9 +1,14 @@
-import React, { useState, Children } from 'react';
+import React, { useState } from 'react';
 import { CarouselProps } from './types';
 import styled from 'styled-components';
+import { Thumbnail, ProjectCover } from '../index';
 
 const CarouselButton = styled.button`
   position: absolute;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 `
 
 const NextButton = styled(CarouselButton)`
@@ -17,26 +22,21 @@ const PrevButton = styled(CarouselButton)`
 `
 
 const Carousel: React.FC<CarouselProps> = (props) => {
-  const { children, active } = props;
+  const { slides, active } = props;
   const [activeSlide, setActiveSlide] = useState(active || 0);
-
-  const goToNextSlide = () => {
-    const nextSlide = activeSlide + 1 >= children.length ? 0 : activeSlide + 1;
-    setActiveSlide(nextSlide);
-  }
-
-  const goToPreviousSlide = () => {
-    const prevSlide = activeSlide - 1 < 0 ? children.length - 1 : activeSlide - 1;
-    setActiveSlide(prevSlide);
-  }
+  const nextIndex = (activeSlide + 1 >= slides.length) ? 0 : activeSlide + 1;
+  const prevIndex = (activeSlide - 1 < 0) ? slides.length - 1 : activeSlide - 1;
 
   return (
     <div>
-      <PrevButton onClick={goToPreviousSlide}> Previous </PrevButton>
+      <ProjectCover {...slides[activeSlide]} />      
 
-      {Children.toArray(children)[activeSlide]}
-      
-      <NextButton onClick={goToNextSlide}> Next </NextButton>
+      <PrevButton onClick={() => setActiveSlide(prevIndex)}>
+        <Thumbnail src={slides[prevIndex]?.image?.src} />
+      </PrevButton>
+      <NextButton onClick={() => setActiveSlide(nextIndex)}>
+        <Thumbnail src={slides[nextIndex]?.image?.src} />
+      </NextButton>
     </div>
   );
 };
