@@ -3,6 +3,7 @@ import { Carousel } from './components';
 import { Slide } from './components/Carousel/types';
 import './styles/fonts.css';
 import './styles/reset.css';
+import './styles/base.css';
 
 // TODO REPLACE WITH WEBPACK LOADER CONFIG
 const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
