@@ -56,7 +56,7 @@ export const Title = styled.h2`
   -webkit-text-stroke: 1px white;
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.span`
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
@@ -65,6 +65,9 @@ export const Subtitle = styled.p`
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
+
+  display: flex;
+  align-items: baseline;
 
   color: #FFFFFF;
   margin-top: 0.5vw;
