@@ -1,7 +1,8 @@
 import React, { useCallback, useState, WheelEvent } from 'react';
 import { CarouselProps } from './types';
-import { Thumbnail, Cover, Indicator } from '../index';
+import { Thumbnail, Cover, Indicator, Cursor } from '../index';
 import {
+  CarouselWrapper,
   IndicatorWrapper,
   CarouselTitle,
   PrevButton,
@@ -22,19 +23,16 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     }
   }, [nextIndex, prevIndex]);
 
-  const subtitle = <span>
-    <IndicatorWrapper>
-      {`${activeSlide + 1} of ${slides.length}`}
+  const subtitle = <IndicatorWrapper>
+    {`${activeSlide + 1} of ${slides.length}`}
 
-      {slides.map((slide, index) => (
-        <Indicator active={activeSlide === index} />
-      ))}
-    </IndicatorWrapper>
-    
-  </span>
+    {slides.map((slide, index) => (
+      <Indicator active={activeSlide === index} />
+    ))}
+  </IndicatorWrapper>
 
   return (
-    <div onWheel={changeSlideOnWheel}>
+    <CarouselWrapper onWheel={changeSlideOnWheel}>
       <Cover 
         {...slides[activeSlide]} 
         subtitle={subtitle}
@@ -48,7 +46,12 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       <NextButton onClick={() => setActiveSlide(nextIndex)}>
         <Thumbnail src={slides[nextIndex]?.image?.src} />
       </NextButton>
-    </div>
+
+      <Cursor 
+        total={slides.length}
+        active={activeSlide}
+      />
+    </CarouselWrapper>
   );
 };
 
