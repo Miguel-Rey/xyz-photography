@@ -27,12 +27,10 @@ const sliderData: ProjectCoverProps[] = [
     },
     title: 'Everyday Flowers',
     subtitle: '1 of 5',
-    // author: 'Johanna Hobel for Vouge',
-    // date: 'Jun 2019',
-    // link: {
-    //   href: '#',
-    //   anchor: 'Have a look',
-    // }
+    author: 'Johanna Hobel for Vouge',
+    date: 'Jun 2019',
+    href: '/everyday-flowers',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -40,12 +38,10 @@ const sliderData: ProjectCoverProps[] = [
       alt: 'alt',
     },
     title: 'The wilder night',
-    // author: 'Johanna Hobel for Wild',
-    // date: 'Dec 2019',
-    // link: {
-    //   href: '#',
-    //   anchor: 'Have a look',
-    // }
+    author: 'Johanna Hobel for Wild',
+    date: 'Dec 2019',
+    href: '/the-wilder-night',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -53,12 +49,10 @@ const sliderData: ProjectCoverProps[] = [
       alt: 'alt',
     },
     title: 'Smooth Memories',
-    // author: 'Johanna Hobel for Chanel',
-    // date: 'Feb 2020',
-    // link: {
-    //   href: '#',
-    //   anchor: 'Have a look',
-    // }
+    author: 'Johanna Hobel for Chanel',
+    date: 'Feb 2020',
+    href: '/smooth-memories',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -66,12 +60,10 @@ const sliderData: ProjectCoverProps[] = [
       alt: 'alt',
     },
     title: 'The Future Universe',
-    // author: 'Johanna Hobel for On',
-    // date: 'Apr 2020',
-    // link: {
-    //   href: '#',
-    //   anchor: 'Have a look',
-    // }
+    author: 'Johanna Hobel for On',
+    date: 'Apr 2020',
+    href: '/the-future-universe',
+    anchor: 'Have a look',
   },
   {
     image: {
@@ -79,18 +71,19 @@ const sliderData: ProjectCoverProps[] = [
       alt: 'alt',
     },
     title: 'She was born Urban',
-    // author: 'Johanna Hobel for Si',
-    // date: 'Dec 2021',
-    // link: {
-    //   href: '#',
-    //   anchor: 'Have a look',
-    // }
+    author: 'Johanna Hobel for Si',
+    date: 'Dec 2021',
+    href: '/she-was-born-urban',
+    anchor: 'Have a look',
   }
 ];
 
 function App() {
   return (
-    <Carousel slides={mapImagesSource(sliderData) } />
+    <Carousel 
+      title="XYZ Photography"
+      slides={mapImagesSource(sliderData) } 
+    />
   );
 }
 

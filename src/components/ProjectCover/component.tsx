@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProjectCoverProps } from './types';
 import styled from 'styled-components';
+import { LinkBox } from '../index';
 
 const CoverBox = styled.div`
   height: 100vh;
@@ -69,9 +70,17 @@ const Subtitle = styled.p`
   color: #FFFFFF;
 `
 
+const LinkBoxWrapper = styled.div`
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+`
+
 
 const ProjectCover: React.FC<ProjectCoverProps> = (props) => {
-  const { image, title, subtitle } = props;
+  const { image, title, subtitle, author, date, anchor, href } = props;
+
+  const shouldRenderLinkBox = author || date || (anchor && href);
   
   return (
     <CoverBox>
@@ -84,6 +93,17 @@ const ProjectCover: React.FC<ProjectCoverProps> = (props) => {
 
         {subtitle && <Subtitle> {subtitle} </Subtitle>}
       </TextBox>
+
+      {shouldRenderLinkBox && (
+        <LinkBoxWrapper>
+          <LinkBox 
+            author={author}
+            date={date}
+            anchor={anchor}
+            href={href}
+          />
+        </LinkBoxWrapper>
+      )}
 
     </CoverBox>
   );
