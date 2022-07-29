@@ -2,9 +2,10 @@ import React from 'react';
 import { IndicatorProps } from './types';
 import styled from 'styled-components';
 
-const IndicatorIcon = styled.div<IndicatorProps>`
+const IndicatorIcon = styled.button<IndicatorProps>`
   width: 5px;
   height: 8px;
+  padding: 0;
 
   border-radius: 2px;
   
@@ -13,9 +14,9 @@ const IndicatorIcon = styled.div<IndicatorProps>`
 `;
 
 const Indicator: React.FC<IndicatorProps> = (props) => {
-  const { active } = props;
+  const { active, onClick } = props;
 
-  return <IndicatorIcon active={active} />
+  return <IndicatorIcon active={active} onClick={onClick} />
 }
 
 export default Indicator;

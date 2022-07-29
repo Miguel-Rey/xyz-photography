@@ -27,7 +27,10 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     {`${activeSlide + 1} of ${slides.length}`}
 
     {slides.map((slide, index) => (
-      <Indicator active={activeSlide === index} />
+      <Indicator 
+        active={activeSlide === index} 
+        onClick={() => setActiveSlide(index)}
+      />
     ))}
   </IndicatorWrapper>
 

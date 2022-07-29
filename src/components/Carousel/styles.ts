@@ -42,4 +42,5 @@ export const IndicatorWrapper = styled.span`
   display: flex;
   gap: 8px;
   text-align: center;
+  align-items: baseline;
 `;

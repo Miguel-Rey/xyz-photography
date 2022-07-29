@@ -7,7 +7,6 @@ const Cursor: React.FC<CursorProps> = ({
   active,
   size = 42,
 }) => {
-  // const { active, total } = props;
   const IconRef = useRef<HTMLDivElement>(null);
 
   const radius = size / 2;
