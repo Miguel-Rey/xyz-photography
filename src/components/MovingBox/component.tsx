@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { RotativeElementProps } from './types';
-import { RotativeDiv, RotativeWrapper } from './styles';
+import { MovingBoxProps } from './types';
+import { MovingDivWrapper, MovingDiv } from './styles';
 
-const RotativeElement: React.FC<RotativeElementProps> = (props) => {
+const MovingBox: React.FC<MovingBoxProps> = (props) => {
   const { children, constrain = 20 } = props;
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -24,12 +24,12 @@ const RotativeElement: React.FC<RotativeElementProps> = (props) => {
   }, []);
 
   return (
-    <RotativeWrapper ref={elementRef}>
-      <RotativeDiv>
+    <MovingDivWrapper ref={elementRef}>
+      <MovingDiv>
         {children}
-      </RotativeDiv>
-    </RotativeWrapper>
+      </MovingDiv>
+    </MovingDivWrapper>
   );
 }
 
-export default RotativeElement;
+export default MovingBox;

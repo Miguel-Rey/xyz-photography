@@ -2,7 +2,7 @@ import React from 'react';
 import { CoverProps } from './types';
 import { LinkBox } from '../index';
 import { motion } from 'framer-motion';
-import { RotativeElement } from '../index';
+import { Movingbox } from '../index';
 import {
   CoverBox,
   BackgroundImage,
@@ -39,7 +39,7 @@ const Cover: React.FC<CoverProps> = (props) => {
         whileHover={{ scale: 1.05 }}
         transition={{ type: 'tween' }}
       >
-        <RotativeElement constrain={40}>
+        <Movingbox constrain={40}>
           <Title
             as={motion.h2}
             variants={TitleAnimation}
@@ -56,7 +56,7 @@ const Cover: React.FC<CoverProps> = (props) => {
             src={image.src} 
             alt={image.alt}
           />
-        </RotativeElement>
+        </Movingbox>
       </TextBox>
 
       {shouldRenderLinkBox && (
@@ -65,14 +65,14 @@ const Cover: React.FC<CoverProps> = (props) => {
           variants={LinkBoxAnimation}
           transition={{ type: 'tween' }}
         >
-          <RotativeElement constrain={40}>
+          <Movingbox constrain={40}>
             <LinkBox 
               author={author}
               date={date}
               anchor={anchor}
               href={href}
             />
-          </RotativeElement>
+          </Movingbox>
         </LinkBoxWrapper>
       )}
 

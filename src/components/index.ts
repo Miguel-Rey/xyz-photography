@@ -4,7 +4,7 @@ import Thumbnail from "./Thumbnail/component";
 import LinkBox from "./LinkBox/component";
 import Indicator from "./Indicator/component";
 import Cursor from './Cursor/component';
-import RotativeElement from './RotativeElement/component';
+import Movingbox from './MovingBox/component';
 
 export {
   Cover,
@@ -13,5 +13,5 @@ export {
   LinkBox,
   Indicator,
   Cursor,
-  RotativeElement,
+  Movingbox,
 }

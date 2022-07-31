@@ -7,7 +7,7 @@ import React, {
 import { CarouselProps } from './types';
 import debounce from 'lodash.debounce';
 
-import { Thumbnail, Cover, Indicator, Cursor, RotativeElement } from '../index';
+import { Thumbnail, Cover, Indicator, Cursor, Movingbox } from '../index';
 import {
   CarouselWrapper,
   IndicatorWrapper,
@@ -64,7 +64,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       </AnimatePresence>
 
       <Subtitle>
-        <RotativeElement constrain={80}>
+        <Movingbox constrain={80}>
           <IndicatorWrapper>
             {`${activeSlide + 1} of ${slides.length}`}
 
@@ -75,7 +75,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
               />
             ))}
           </IndicatorWrapper>
-        </RotativeElement>
+        </Movingbox>
       </Subtitle>
 
       {title && <CarouselTitle> {title} </CarouselTitle>}
@@ -94,9 +94,9 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           onMouseEnter={() => setUseBigCursor(true)}
           onMouseLeave={() => setUseBigCursor(false)}
         >
-          <RotativeElement constrain={120}>
+          <Movingbox constrain={120}>
             <Thumbnail src={slides[prevIndex]?.image?.src} />
-          </RotativeElement>
+          </Movingbox>
         </PrevButton>
 
         <NextButton 
@@ -110,9 +110,9 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           onMouseLeave={() => setUseBigCursor(false)}
         >
           
-          <RotativeElement constrain={120}>
+          <Movingbox constrain={120}>
               <Thumbnail src={slides[nextIndex]?.image?.src} />
-          </RotativeElement>
+          </Movingbox>
         </NextButton>
       </AnimatePresence>
 
