@@ -10,17 +10,19 @@ import {
   LinkBoxWrapper,
   TextBox,
   Title,
+  Subtitle,
 } from './styles';
 
 import {
   BackgroundAnimation,
   TitleAnimation,
   ImageAnimation,
-  LinkBoxAnimation
+  LinkBoxAnimation,
+  SubtitleAnimation,
 } from './animations';
 
 const Cover: React.FC<CoverProps> = (props) => {
-  const { image, title, author, date, anchor, href, onAnimationComplete } = props;
+  const { image, title, author, date, anchor, href, subtitle, onAnimationComplete } = props;
 
   const shouldRenderLinkBox = author || date || (anchor && href);
   
@@ -45,6 +47,13 @@ const Cover: React.FC<CoverProps> = (props) => {
           > 
             { title }
           </Title>
+
+          <Subtitle
+            as={motion.h2}
+            variants={SubtitleAnimation}
+          >
+            {subtitle}
+          </Subtitle>
 
           <HighlightedImage
             as={motion.img}

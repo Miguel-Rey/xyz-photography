@@ -104,15 +104,18 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             animate="center"
             exit="exit"
           >
-            <Cover {...slides[activeSlide]} />
+            <Cover 
+              {...slides[activeSlide]} 
+              subtitle={(
+                <CarouselIndicator
+                  total={slides.length}
+                  active={activeSlide}
+                  connector="of"
+                />
+              )}
+            />
           </motion.div>
         </AnimatePresence>
-
-        <CarouselIndicator
-          total={slides.length}
-          active={activeSlide}
-          connector="of"
-        />
 
         <CarouselTitle> {title} </CarouselTitle>
 

@@ -75,6 +75,17 @@ export const Title = styled.h2`
   backgroud-clip: text;
 `;
 
+export const Subtitle = styled.div`
+  width: 100%;
+  
+  position: absolute;
+  bottom: 23%;
+  left: 50%;
+
+  transform: translateX(-50%);
+  z-index: 10;
+`
+
 export const LinkBoxWrapper = styled.div`
   position: absolute;
   right: 11vw;

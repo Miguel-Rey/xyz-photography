@@ -49,6 +49,26 @@ export const TitleAnimation = {
   },
 }
 
+export const SubtitleAnimation = {
+  enter: {
+    opacity: 0,
+    y: '-20%',
+    x: '-50%',
+  },
+  center: {
+    opacity: 1,
+    y: '-0%',
+    x: '-50%',
+    transition: {
+      delay: 0.4
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: '20%'
+  },
+}
+
 export const LinkBoxAnimation = {
   enter: {
     opacity: 0,
