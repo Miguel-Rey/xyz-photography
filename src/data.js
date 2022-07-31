@@ -1,9 +1,15 @@
-{
+import image01 from './assets/images/image01.jpg';
+import image02 from './assets/images/image02.jpg';
+import image03 from './assets/images/image03.jpg';
+import image04 from './assets/images/image04.jpg';
+import image05 from './assets/images/image05.jpg';
+
+const data = {
   "title": "XYZ Photography",
   "slides": [
     {
       "image": {
-        "src": "assets/images/image01.jpg",
+        "src": image01,
         "alt": "alt-01"
       },
       "title": "Everyday Flowers",
@@ -14,7 +20,7 @@
     },
     {
       "image": {
-        "src": "assets/images/image02.jpg",
+        "src": image02,
         "alt": "alt"
       },
       "title": "The wilder night",
@@ -25,7 +31,7 @@
     },
     {
       "image": {
-        "src": "assets/images/image03.jpg",
+        "src": image03,
         "alt": "alt"
       },
       "title": "Smooth Memories",
@@ -36,7 +42,7 @@
     },
     {
       "image": {
-        "src": "assets/images/image04.jpg",
+        "src": image04,
         "alt": "alt"
       },
       "title": "The Future Universe",
@@ -47,7 +53,7 @@
     },
     {
       "image": {
-        "src": "assets/images/image05.jpg",
+        "src": image05,
         "alt": "alt"
       },
       "title": "She was born Urban",
@@ -57,4 +63,6 @@
       "anchor": "Have a look"
     }
   ]
-}
+};
+
+export default data;
