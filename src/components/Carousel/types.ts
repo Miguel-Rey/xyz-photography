@@ -8,3 +8,20 @@ export type CarouselProps = {
   
   title?: string;
 }
+
+export type CarouselIndicatorProps = {
+  active: number,
+  total: number,
+  connector?: string;
+}
+
+export type CarouselButtonProps = {
+  image: string;
+  onClick: () => void;
+
+  onMouseEnter: () => void;
+
+  onMouseLeave: () => void;
+
+  isNextButton?: boolean;
+}

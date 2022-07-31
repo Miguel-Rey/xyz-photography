@@ -4,25 +4,6 @@ export const CarouselWrapper = styled.div`
   cursor: none;
 `
 
-export const CarouselButton = styled.button`
-  position: absolute;
-  padding: 0;
-  background: none;
-  border: none;
-  z-index: 1;
-  cursor: none;
-`
-
-export const NextButton = styled(CarouselButton)`
-  top: 16px;
-  right: 16px;
-`
-
-export const PrevButton = styled(CarouselButton)`
-  bottom: 16px;
-  left: 16px;
-`
-
 export const CarouselTitle = styled.h1`
   position: absolute;
   left: 16px;
@@ -38,7 +19,9 @@ export const CarouselTitle = styled.h1`
   color: #FFFFFF;
 `
 
-export const Subtitle = styled.span`
+// Indicator related
+
+export const IndicatorWrapper = styled.span`
   position: absolute;
   top: 70%;
   left: 50%;
@@ -60,9 +43,30 @@ export const Subtitle = styled.span`
   margin-top: 0.5vw;
 `
 
-export const IndicatorWrapper = styled.span`
+export const IndicatorInner = styled.span`
   display: flex;
   gap: 8px;
   text-align: center;
   align-items: center;
 `;
+
+// Button related
+
+export const CarouselButton = styled.button`
+  position: absolute;
+  padding: 0;
+  background: none;
+  border: none;
+  z-index: 1;
+  cursor: none;
+`
+
+export const NextButton = styled(CarouselButton)`
+  top: 16px;
+  right: 16px;
+`
+
+export const PrevButton = styled(CarouselButton)`
+  bottom: 16px;
+  left: 16px;
+`

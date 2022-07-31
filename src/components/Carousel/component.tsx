@@ -4,20 +4,67 @@ import React, {
   WheelEvent,
   useEffect,
 } from 'react';
-import { CarouselProps } from './types';
+import { CarouselProps, CarouselButtonProps, CarouselIndicatorProps } from './types';
 import debounce from 'lodash.debounce';
 
 import { Thumbnail, Cover, Indicator, Cursor, Movingbox } from '../index';
 import {
   CarouselWrapper,
-  IndicatorWrapper,
   CarouselTitle,
   PrevButton,
   NextButton,
-  Subtitle,
+  IndicatorWrapper,
+  IndicatorInner,
 } from './styles';
 
 import { motion, AnimatePresence } from "framer-motion";
+
+const CarouselButton: React.FC<CarouselButtonProps> = ({
+  image,
+  onMouseEnter,
+  onMouseLeave,
+  onClick,
+  isNextButton,
+}) => {
+  const ButtonComponent = isNextButton ? NextButton : PrevButton;
+  return (
+    <ButtonComponent
+      as={motion.button}
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0.5 }}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <Movingbox constrain={120}>
+        <Thumbnail src={image} />
+      </Movingbox>
+    </ButtonComponent>
+  );
+};
+
+const CarouselIndicator: React.FC<CarouselIndicatorProps> = ({
+  total,
+  active,
+  connector,
+}) => (
+  <IndicatorWrapper>
+    <Movingbox constrain={80}>
+      <IndicatorInner>
+        {`${active + 1} ${connector} ${total}`}
+
+        {Array.from(Array(total)).map((_item, i) => (
+          <Indicator 
+            key={i}
+            active={active === i}
+          />
+        ))}
+      </IndicatorInner>
+    </Movingbox>
+  </IndicatorWrapper>
+);
+
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides, title } = props;
@@ -57,63 +104,38 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           animate="center"
           exit="exit"
         >
-          <Cover
-            {...slides[activeSlide]}
-          />
+          <Cover {...slides[activeSlide]} />
         </motion.div>
       </AnimatePresence>
 
-      <Subtitle>
-        <Movingbox constrain={80}>
-          <IndicatorWrapper>
-            {`${activeSlide + 1} of ${slides.length}`}
+      <CarouselIndicator
+        total={slides.length}
+        active={activeSlide}
+        connector="of"
+      />
 
-            {slides.map((_slide, index) => (
-              <Indicator 
-                key={index}
-                active={activeSlide === index}
-              />
-            ))}
-          </IndicatorWrapper>
-        </Movingbox>
-      </Subtitle>
-
-      {title && <CarouselTitle> {title} </CarouselTitle>}
+      <CarouselTitle> {title} </CarouselTitle>
 
       <AnimatePresence 
         initial={false}
         custom={direction}
       >
-        <PrevButton
-          as={motion.button}
-          key={`prev-button${slides[activeSlide].image.src}`}
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0.5 }}
+        <CarouselButton
+          key={`prev-${slides[prevIndex].image.src}`}
+          image={slides[prevIndex].image.src}
           onClick={() => setActiveSlide([prevIndex, -1])}
           onMouseEnter={() => setUseBigCursor(true)}
           onMouseLeave={() => setUseBigCursor(false)}
-        >
-          <Movingbox constrain={120}>
-            <Thumbnail src={slides[prevIndex]?.image?.src} />
-          </Movingbox>
-        </PrevButton>
+        />
 
-        <NextButton 
-          as={motion.button}
-          key={`next-button${slides[activeSlide].image.src}`}
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0.5 }}
-          onClick={() => setActiveSlide([nextIndex, 1])}
+        <CarouselButton
+          key={`next-${slides[prevIndex].image.src}`}
+          image={slides[nextIndex].image.src}
+          onClick={() => setActiveSlide([nextIndex, +1])}
           onMouseEnter={() => setUseBigCursor(true)}
           onMouseLeave={() => setUseBigCursor(false)}
-        >
-          
-          <Movingbox constrain={120}>
-              <Thumbnail src={slides[nextIndex]?.image?.src} />
-          </Movingbox>
-        </NextButton>
+          isNextButton
+        />
       </AnimatePresence>
 
 

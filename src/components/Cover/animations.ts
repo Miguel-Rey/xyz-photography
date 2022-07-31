@@ -1,13 +1,13 @@
 
 export const BackgroundAnimation = {
   enter: {
-    opacity: 0.5,
+    opacity: 0.3,
   },
   center: {
     opacity: 1,
   },
   exit: {
-    opacity: 0.5,
+    opacity: 0.3,
   }
 };
 
