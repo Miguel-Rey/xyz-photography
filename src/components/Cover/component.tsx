@@ -22,7 +22,7 @@ import {
 } from './animations';
 
 const Cover: React.FC<CoverProps> = (props) => {
-  const { image, title, author, date, anchor, href, subtitle, onAnimationComplete } = props;
+  const { image, title, author, date, anchor, href, subtitle } = props;
 
   const shouldRenderLinkBox = author || date || (anchor && href);
   
@@ -43,7 +43,6 @@ const Cover: React.FC<CoverProps> = (props) => {
           <Title
             as={motion.h2}
             variants={TitleAnimation}
-            onAnimationComplete={onAnimationComplete}
           > 
             { title }
           </Title>

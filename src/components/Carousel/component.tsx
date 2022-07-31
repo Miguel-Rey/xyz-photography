@@ -2,7 +2,6 @@ import React, {
   useCallback, 
   useState, 
   WheelEvent,
-  useEffect,
 } from 'react';
 import { CarouselProps, CarouselButtonProps, CarouselIndicatorProps } from './types';
 import debounce from 'lodash.debounce';
@@ -70,7 +69,6 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides, title } = props;
 
   const [[activeSlide, direction], setActiveSlide] = useState([0, 0]);
-  const [changingSlide, setChangingSlide] = useState(false);
 
   const [useBigCursor, setUseBigCursor] = useState(false);
 
@@ -78,20 +76,13 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   const prevIndex = (activeSlide - 1 < 0) ? slides.length - 1 : activeSlide - 1;
 
   const changeSlideOnWheel = useCallback((e: WheelEvent<HTMLDivElement>) => {
-    if (!changingSlide) {
-      setActiveSlide(e.deltaY > 0 ? [nextIndex, 1] : [prevIndex, -1]);
-    }
-  }, [nextIndex, prevIndex, changingSlide]);
+    setActiveSlide(e.deltaY > 0 ? [nextIndex, 1] : [prevIndex, -1]);
+  }, [nextIndex, prevIndex]);
 
-  const debounced = debounce(changeSlideOnWheel);
-
-  useEffect(() => {
-    setChangingSlide(true);
-    setTimeout(() => setChangingSlide(false), 1000);
-  }, [activeSlide]);
+  const debouncedChangeSlideOnWheel = debounce(changeSlideOnWheel, 200);
 
   return (
-    <CarouselWrapper onWheel={debounced}>
+    <CarouselWrapper onWheel={debouncedChangeSlideOnWheel}>
       <MotionConfig transition={{ type: 'tween' }}>
         <AnimatePresence 
           initial={false}
@@ -105,7 +96,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             exit="exit"
           >
             <Cover 
-              {...slides[activeSlide]} 
+              {...slides[activeSlide]}
               subtitle={(
                 <CarouselIndicator
                   total={slides.length}
