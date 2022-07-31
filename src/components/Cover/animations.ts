@@ -14,7 +14,7 @@ export const BackgroundAnimation = {
 export const ImageAnimation = {
   enter: {
     opacity: 0,
-    y: '10%'
+    y: 'calc(var(--direction) * -10%)',
   },
   center: {
     opacity: 1,
@@ -25,14 +25,14 @@ export const ImageAnimation = {
   },
   exit: {
     opacity: 0,
-    y: '-10%'
+    y: 'calc(var(--direction) * 10%)',
   },
 };
 
 export const TitleAnimation = {
   enter: {
     opacity: 0,
-    y: '-10%',
+    y: 'calc(var(--direction) * -10%)',
     x: '-50%',
   },
   center: {
@@ -45,14 +45,15 @@ export const TitleAnimation = {
   },
   exit: {
     opacity: 0,
-    y: '10%'
+    y: 'calc(var(--direction) * 10%)',
+    x: '-50%',
   },
 }
 
 export const SubtitleAnimation = {
   enter: {
     opacity: 0,
-    y: '-20%',
+    y: 'calc(var(--direction) * -20%)',
     x: '-50%',
   },
   center: {
@@ -65,7 +66,7 @@ export const SubtitleAnimation = {
   },
   exit: {
     opacity: 0,
-    y: '20%'
+    y: 'calc(var(--direction) * 20%)',
   },
 }
 

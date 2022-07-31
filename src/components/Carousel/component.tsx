@@ -2,6 +2,7 @@ import React, {
   useCallback, 
   useState, 
   WheelEvent,
+  useEffect,
 } from 'react';
 import { CarouselProps, CarouselButtonProps, CarouselIndicatorProps } from './types';
 import debounce from 'lodash.debounce';
@@ -67,30 +68,29 @@ const CarouselIndicator: React.FC<CarouselIndicatorProps> = ({
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { slides, title } = props;
-
-  const [[activeSlide, direction], setActiveSlide] = useState([0, 0]);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const [useBigCursor, setUseBigCursor] = useState(false);
 
   const nextIndex = (activeSlide + 1 >= slides.length) ? 0 : activeSlide + 1;
   const prevIndex = (activeSlide - 1 < 0) ? slides.length - 1 : activeSlide - 1;
 
-  const changeSlideOnWheel = useCallback((e: WheelEvent<HTMLDivElement>) => {
-    setActiveSlide(e.deltaY > 0 ? [nextIndex, 1] : [prevIndex, -1]);
-  }, [nextIndex, prevIndex]);
+  const changeSlide = (direction: number) => {
+    document.body.style.setProperty('--direction', `${direction}`);
+    setActiveSlide(direction > 0 ? nextIndex : prevIndex);
+  }
 
+  const changeSlideOnWheel = (e: WheelEvent) => changeSlide(e.deltaY > 0 ? 1 : -1);
   const debouncedChangeSlideOnWheel = debounce(changeSlideOnWheel, 200);
 
   return (
-    <CarouselWrapper onWheel={debouncedChangeSlideOnWheel}>
+    <CarouselWrapper 
+      onWheel={debouncedChangeSlideOnWheel}
+    >
       <MotionConfig transition={{ type: 'tween' }}>
-        <AnimatePresence 
-          initial={false}
-          custom={direction}
-        >
+        <AnimatePresence initial={false}>
           <motion.div
             key={slides[activeSlide].image.src}
-            custom={direction}
             initial="enter"
             animate="center"
             exit="exit"
@@ -110,14 +110,11 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
         <CarouselTitle> {title} </CarouselTitle>
 
-        <AnimatePresence 
-          initial={false}
-          custom={direction}
-        >
+        <AnimatePresence  initial={false}>
           <CarouselButton
             key={`prev-${slides[prevIndex].image.src}`}
             image={slides[prevIndex].image.src}
-            onClick={() => setActiveSlide([prevIndex, -1])}
+            onClick={() => changeSlide(-1)}
             onMouseEnter={() => setUseBigCursor(true)}
             onMouseLeave={() => setUseBigCursor(false)}
           />
@@ -125,7 +122,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           <CarouselButton
             key={`next-${slides[prevIndex].image.src}`}
             image={slides[nextIndex].image.src}
-            onClick={() => setActiveSlide([nextIndex, +1])}
+            onClick={() => changeSlide(+1)}
             onMouseEnter={() => setUseBigCursor(true)}
             onMouseLeave={() => setUseBigCursor(false)}
             isNextButton
