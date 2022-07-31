@@ -27,15 +27,6 @@ export const IndicatorWrapper = styled.span`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  font-family: 'Helvetica';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-
   display: flex;
   align-items: baseline;
 
@@ -49,6 +40,19 @@ export const IndicatorInner = styled.span`
   text-align: center;
   align-items: center;
 `;
+
+export const IndicatorText = styled.span`
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-right: 16px;
+`
 
 // Button related
 

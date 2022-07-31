@@ -1,9 +1,4 @@
-import React, { 
-  useCallback, 
-  useState, 
-  WheelEvent,
-  useEffect,
-} from 'react';
+import React, { useState, WheelEvent } from 'react';
 import { CarouselProps, CarouselButtonProps, CarouselIndicatorProps } from './types';
 import debounce from 'lodash.debounce';
 
@@ -15,6 +10,7 @@ import {
   NextButton,
   IndicatorWrapper,
   IndicatorInner,
+  IndicatorText,
 } from './styles';
 
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
@@ -27,20 +23,24 @@ const CarouselButton: React.FC<CarouselButtonProps> = ({
   isNextButton,
 }) => {
   const ButtonComponent = isNextButton ? NextButton : PrevButton;
+  const key = isNextButton ? `next-${image}` : `prev-${image}`;
   return (
-    <ButtonComponent
-      as={motion.button}
-      initial={{ opacity: 0.5 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0.5 }}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <Movingbox constrain={120}>
-        <Thumbnail src={image} />
-      </Movingbox>
-    </ButtonComponent>
+    <motion.div
+      key={key}
+      initial="enter"
+      animate="center"
+      exit="exit"
+    >   
+      <ButtonComponent
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <Movingbox constrain={120}>
+          <Thumbnail src={image} />
+        </Movingbox>
+      </ButtonComponent>
+    </motion.div>
   );
 };
 
@@ -52,7 +52,9 @@ const CarouselIndicator: React.FC<CarouselIndicatorProps> = ({
   <IndicatorWrapper>
     <Movingbox constrain={80}>
       <IndicatorInner>
-        {`${active + 1} ${connector} ${total}`}
+        <IndicatorText>
+          {`${active + 1} ${connector} ${total}`}
+        </IndicatorText>
 
         {Array.from(Array(total)).map((_item, i) => (
           <Indicator 
@@ -88,7 +90,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       onWheel={debouncedChangeSlideOnWheel}
     >
       <MotionConfig transition={{ type: 'tween' }}>
-        <AnimatePresence initial={false}>
+        <AnimatePresence>
           <motion.div
             key={slides[activeSlide].image.src}
             initial="enter"
@@ -110,9 +112,8 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
         <CarouselTitle> {title} </CarouselTitle>
 
-        <AnimatePresence  initial={false}>
+        <AnimatePresence>
           <CarouselButton
-            key={`prev-${slides[prevIndex].image.src}`}
             image={slides[prevIndex].image.src}
             onClick={() => changeSlide(-1)}
             onMouseEnter={() => setUseBigCursor(true)}

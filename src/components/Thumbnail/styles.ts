@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ThumbnailWrapper = styled.div`
-  width: clamp(120px, 22vw, 215px);
+  width: clamp(120px, 22vw, 245px);
   aspect-ratio: 64/85;
   
   overflow: hidden;

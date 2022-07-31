@@ -10,6 +10,7 @@ import {
   LinkBoxWrapper,
   TextBox,
   Title,
+  TitleWhite,
   Subtitle,
 } from './styles';
 
@@ -46,6 +47,13 @@ const Cover: React.FC<CoverProps> = (props) => {
           > 
             { title }
           </Title>
+
+          <TitleWhite
+            as={motion.h2}
+            variants={TitleAnimation}
+          > 
+            { title }
+          </TitleWhite>
 
           <Subtitle
             as={motion.h2}

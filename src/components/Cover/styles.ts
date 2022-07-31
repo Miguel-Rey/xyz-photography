@@ -24,8 +24,10 @@ export const BackgroundImage = styled.img`
 `;
 
 export const TextBox = styled.div`
-  width: 35vw;
+  width: 36vw;
   min-width: 200px;
+  max-width: 516px;
+
 
   display: flex;
   flex-direction: column;
@@ -52,6 +54,7 @@ export const TextMask = styled.div`
 
 export const Title = styled.h2`
   width: 12ch;
+  max-width: 888px;
 
   position: absolute;
   top: 25%;
@@ -69,21 +72,26 @@ export const Title = styled.h2`
   text-align: center;
 
   color: transparent;
-  background: linear-gradient(to right, transparent 18.8%, white 18.8%, white 81.2%, transparent 81.2%);
   -webkit-text-stroke: 1px white;
-  -webkit-background-clip: text;
-  backgroud-clip: text;
+`;
+
+export const TitleWhite = styled(Title)`
+  color: white;
+  z-index: 9;
+  clip-path: polygon(21% 0%, 79% 0%, 79% 100%, 21% 100%);
 `;
 
 export const Subtitle = styled.div`
   width: 100%;
   
   position: absolute;
-  bottom: 23%;
+  bottom: 27%;
   left: 50%;
 
   transform: translateX(-50%);
   z-index: 10;
+
+  white-space: nowrap;
 `
 
 export const LinkBoxWrapper = styled.div`
