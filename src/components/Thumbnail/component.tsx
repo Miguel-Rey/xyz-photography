@@ -10,12 +10,10 @@ const Thumbnail: React.FC<ThumbnailProps> = (props) => {
     <ThumbnailWrapper
       as={motion.div}
       whileHover={{ scale: 0.97 }}
-      transition={{ type: 'tween' }}
     >
       <ThumbnailImage
         as={motion.img}
         whileHover={{ scale: 1.1 }}
-        transition={{ type: 'tween' }}
         src={src} 
         alt={alt} 
       />

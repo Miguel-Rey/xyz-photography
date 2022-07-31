@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CursorProps } from './types';
 import { CursorIcon, AnimatedCircle, PointerIcon } from './styles';
+
+const onMouseMove = (e: MouseEvent) => {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+  
+  document.body.style.setProperty('--x', `${mouseX}px`);
+  document.body.style.setProperty('--y', `${mouseY}px`);
+}
 
 const Cursor: React.FC<CursorProps> = ({
   total,
@@ -11,6 +19,11 @@ const Cursor: React.FC<CursorProps> = ({
   const innerRadius = (size - 2) / 2;
   const dashArray = 2 * Math.PI * innerRadius;
   const dashOffset = dashArray - (dashArray * (active + 1) / total);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    return () => { window.removeEventListener('mousemove', onMouseMove)};
+  }, []);
 
   return (
     <div>

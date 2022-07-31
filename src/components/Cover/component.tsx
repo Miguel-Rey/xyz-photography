@@ -29,7 +29,6 @@ const Cover: React.FC<CoverProps> = (props) => {
       <BackgroundImage 
         as={motion.img}
         variants={BackgroundAnimation}
-        transition={{ type: 'tween' }}
         src={image.src} 
         alt={image.alt} 
       />
@@ -37,13 +36,11 @@ const Cover: React.FC<CoverProps> = (props) => {
       <TextBox
         as={motion.div}
         whileHover={{ scale: 1.05 }}
-        transition={{ type: 'tween' }}
       >
         <Movingbox constrain={40}>
           <Title
             as={motion.h2}
             variants={TitleAnimation}
-            transition={{ type: 'tween' }}
             onAnimationComplete={onAnimationComplete}
           > 
             { title }
@@ -52,7 +49,6 @@ const Cover: React.FC<CoverProps> = (props) => {
           <HighlightedImage
             as={motion.img}
             variants={ImageAnimation}
-            transition={{ type: 'tween' }}
             src={image.src} 
             alt={image.alt}
           />
@@ -63,7 +59,6 @@ const Cover: React.FC<CoverProps> = (props) => {
         <LinkBoxWrapper
           as={motion.div}
           variants={LinkBoxAnimation}
-          transition={{ type: 'tween' }}
         >
           <Movingbox constrain={40}>
             <LinkBox 

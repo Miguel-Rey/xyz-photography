@@ -17,7 +17,7 @@ import {
   IndicatorInner,
 } from './styles';
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 
 const CarouselButton: React.FC<CarouselButtonProps> = ({
   image,
@@ -92,58 +92,59 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
   return (
     <CarouselWrapper onWheel={debounced}>
-
-      <AnimatePresence 
-        initial={false}
-        custom={direction}
-      >
-        <motion.div
-          key={slides[activeSlide].image.src}
+      <MotionConfig transition={{ type: 'tween' }}>
+        <AnimatePresence 
+          initial={false}
           custom={direction}
-          initial="enter"
-          animate="center"
-          exit="exit"
         >
-          <Cover {...slides[activeSlide]} />
-        </motion.div>
-      </AnimatePresence>
+          <motion.div
+            key={slides[activeSlide].image.src}
+            custom={direction}
+            initial="enter"
+            animate="center"
+            exit="exit"
+          >
+            <Cover {...slides[activeSlide]} />
+          </motion.div>
+        </AnimatePresence>
 
-      <CarouselIndicator
-        total={slides.length}
-        active={activeSlide}
-        connector="of"
-      />
-
-      <CarouselTitle> {title} </CarouselTitle>
-
-      <AnimatePresence 
-        initial={false}
-        custom={direction}
-      >
-        <CarouselButton
-          key={`prev-${slides[prevIndex].image.src}`}
-          image={slides[prevIndex].image.src}
-          onClick={() => setActiveSlide([prevIndex, -1])}
-          onMouseEnter={() => setUseBigCursor(true)}
-          onMouseLeave={() => setUseBigCursor(false)}
+        <CarouselIndicator
+          total={slides.length}
+          active={activeSlide}
+          connector="of"
         />
 
-        <CarouselButton
-          key={`next-${slides[prevIndex].image.src}`}
-          image={slides[nextIndex].image.src}
-          onClick={() => setActiveSlide([nextIndex, +1])}
-          onMouseEnter={() => setUseBigCursor(true)}
-          onMouseLeave={() => setUseBigCursor(false)}
-          isNextButton
+        <CarouselTitle> {title} </CarouselTitle>
+
+        <AnimatePresence 
+          initial={false}
+          custom={direction}
+        >
+          <CarouselButton
+            key={`prev-${slides[prevIndex].image.src}`}
+            image={slides[prevIndex].image.src}
+            onClick={() => setActiveSlide([prevIndex, -1])}
+            onMouseEnter={() => setUseBigCursor(true)}
+            onMouseLeave={() => setUseBigCursor(false)}
+          />
+
+          <CarouselButton
+            key={`next-${slides[prevIndex].image.src}`}
+            image={slides[nextIndex].image.src}
+            onClick={() => setActiveSlide([nextIndex, +1])}
+            onMouseEnter={() => setUseBigCursor(true)}
+            onMouseLeave={() => setUseBigCursor(false)}
+            isNextButton
+          />
+        </AnimatePresence>
+
+
+        <Cursor 
+          total={slides.length}
+          active={activeSlide}
+          size={useBigCursor ? 63 : 42}
         />
-      </AnimatePresence>
-
-
-      <Cursor 
-        total={slides.length}
-        active={activeSlide}
-        size={useBigCursor ? 63 : 42}
-      />
+      </MotionConfig>
     </CarouselWrapper>
   );
 };
