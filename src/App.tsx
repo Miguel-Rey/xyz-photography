@@ -19,8 +19,8 @@ const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
 
 const App = () => (
   <Carousel 
-    title="XYZ Photography"
-    slides={mapImagesSource(data.sliderData) } 
+    title={data.title}
+    slides={mapImagesSource(data.slides) } 
   />
 );
 

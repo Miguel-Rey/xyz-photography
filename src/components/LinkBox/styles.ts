@@ -5,6 +5,7 @@ export const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+
   padding: 0px;
   gap: 16px;
   max-width: 110px;
@@ -28,9 +29,6 @@ export const Date = styled(Author)`
 `
 
 export const Link = styled.a`
-  transition: 
-    background-color 400ms ease-in-out,
-    color 400ms ease-in-out;
   padding: 9px 16px 8px;
   background: #FFFFFF;
   border-radius: 24px;
@@ -44,6 +42,10 @@ export const Link = styled.a`
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+
+  transition: 
+    background-color 400ms ease-in-out,
+    color 400ms ease-in-out;
 
   color: #000;
   cursor: none;
