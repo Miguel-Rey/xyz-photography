@@ -28,6 +28,9 @@ export const Date = styled(Author)`
 `
 
 export const Link = styled.a`
+  transition: 
+    background-color 400ms ease-in-out,
+    color 400ms ease-in-out;
   padding: 9px 16px 8px;
   background: #FFFFFF;
   border-radius: 24px;
@@ -42,6 +45,11 @@ export const Link = styled.a`
   text-transform: uppercase;
   text-decoration: none;
 
-color: #202020;
   color: #000;
+  cursor: none;
+
+  &:hover {
+    background-color: #000;
+    color: #FFF;
+  }
 `

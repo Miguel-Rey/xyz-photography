@@ -3,5 +3,5 @@ import React from "react";
 export type IndicatorProps = {
   active: boolean;
 
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

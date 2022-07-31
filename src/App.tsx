@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel } from './components';
 import { Slide } from './components/Carousel/types';
 import './styles/fonts.css';
 import './styles/reset.css';
 import './styles/base.css';
+
+
 
 // TODO REPLACE WITH WEBPACK LOADER CONFIG
 const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
@@ -72,7 +74,22 @@ const sliderData: Slide[] = [
   }
 ];
 
+
+const onMouseMove = (e: MouseEvent) => {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+  
+  document.body.style.setProperty('--x', `${mouseX}px`);
+  document.body.style.setProperty('--y', `${mouseY}px`);
+}
+
+
 function App() {
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    return () => { window.removeEventListener('mousemove', onMouseMove)};
+  }, []);
+
   return (
     <Carousel 
       title="XYZ Photography"

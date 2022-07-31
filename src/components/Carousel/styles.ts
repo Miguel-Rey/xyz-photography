@@ -38,6 +38,28 @@ export const CarouselTitle = styled.h1`
   color: #FFFFFF;
 `
 
+export const Subtitle = styled.span`
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+
+  display: flex;
+  align-items: baseline;
+
+  color: #FFFFFF;
+  margin-top: 0.5vw;
+`
+
 export const IndicatorWrapper = styled.span`
   display: flex;
   gap: 8px;

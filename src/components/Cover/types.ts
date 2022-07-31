@@ -8,4 +8,6 @@ export type CoverProps = LinkBoxProps & {
   title: string;
 
   subtitle?: JSX.Element;  
+
+  onAnimationComplete?: () => void;
 }
