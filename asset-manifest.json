@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/xyz-photography/static/css/main.87509e3f.css",
+    "main.js": "/xyz-photography/static/js/main.d9a009f9.js",
+    "static/media/Tungsten-Semibold.woff": "/xyz-photography/static/media/Tungsten-Semibold.7baa8069c38b96a3e24e.woff",
+    "static/media/Tungsten-Bold.woff": "/xyz-photography/static/media/Tungsten-Bold.5f2195ebdd1c576a31f5.woff",
+    "static/media/Tungsten-Semibold.woff2": "/xyz-photography/static/media/Tungsten-Semibold.a6e6a6f7bbd33e95b817.woff2",
+    "static/media/Tungsten-Bold.woff2": "/xyz-photography/static/media/Tungsten-Bold.cd044e14c29951fac425.woff2",
+    "index.html": "/xyz-photography/index.html",
+    "main.87509e3f.css.map": "/xyz-photography/static/css/main.87509e3f.css.map",
+    "main.d9a009f9.js.map": "/xyz-photography/static/js/main.d9a009f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87509e3f.css",
+    "static/js/main.d9a009f9.js"
+  ]
+}
