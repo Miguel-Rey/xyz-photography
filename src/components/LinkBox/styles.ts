@@ -5,6 +5,7 @@ export const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+
   padding: 0px;
   gap: 16px;
   max-width: 110px;
@@ -42,6 +43,15 @@ export const Link = styled.a`
   text-transform: uppercase;
   text-decoration: none;
 
-color: #202020;
+  transition: 
+    background-color 400ms ease-in-out,
+    color 400ms ease-in-out;
+
   color: #000;
+  cursor: none;
+
+  &:hover {
+    background-color: #000;
+    color: #FFF;
+  }
 `

@@ -5,6 +5,7 @@ export type CoverProps = LinkBoxProps & {
     src: string;
     alt?: string;
   }
+  
   title: string;
 
   subtitle?: JSX.Element;  

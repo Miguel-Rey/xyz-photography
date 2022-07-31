@@ -5,6 +5,8 @@ import './styles/fonts.css';
 import './styles/reset.css';
 import './styles/base.css';
 
+import data from './data.json';
+
 // TODO REPLACE WITH WEBPACK LOADER CONFIG
 const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
   ...slide,
@@ -14,71 +16,12 @@ const mapImagesSource = (data: Slide[]) => data.map((slide) => ({
   }
 }));
 
-const sliderData: Slide[] = [
-  {
-    image: {
-      src: 'assets/images/image01.jpg',
-      alt: 'alt-01',
-    },
-    title: 'Everyday Flowers',
-    author: 'Johanna Hobel for Vouge',
-    date: 'Jun 2019',
-    href: '/everyday-flowers',
-    anchor: 'Have a look',
-  },
-  {
-    image: {
-      src: 'assets/images/image02.jpg',
-      alt: 'alt',
-    },
-    title: 'The wilder night',
-    author: 'Johanna Hobel for Wild',
-    date: 'Dec 2019',
-    href: '/the-wilder-night',
-    anchor: 'Have a look',
-  },
-  {
-    image: {
-      src: 'assets/images/image03.jpg',
-      alt: 'alt',
-    },
-    title: 'Smooth Memories',
-    author: 'Johanna Hobel for Chanel',
-    date: 'Feb 2020',
-    href: '/smooth-memories',
-    anchor: 'Have a look',
-  },
-  {
-    image: {
-      src: 'assets/images/image04.jpg',
-      alt: 'alt',
-    },
-    title: 'The Future Universe',
-    author: 'Johanna Hobel for On',
-    date: 'Apr 2020',
-    href: '/the-future-universe',
-    anchor: 'Have a look',
-  },
-  {
-    image: {
-      src: 'assets/images/image05.jpg',
-      alt: 'alt',
-    },
-    title: 'She was born Urban',
-    author: 'Johanna Hobel for Si',
-    date: 'Dec 2021',
-    href: '/she-was-born-urban',
-    anchor: 'Have a look',
-  }
-];
 
-function App() {
-  return (
-    <Carousel 
-      title="XYZ Photography"
-      slides={mapImagesSource(sliderData) } 
-    />
-  );
-}
+const App = () => (
+  <Carousel 
+    title={data.title}
+    slides={mapImagesSource(data.slides) } 
+  />
+);
 
 export default App;
