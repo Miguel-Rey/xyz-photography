@@ -36,9 +36,7 @@ const CarouselButton: React.FC<CarouselButtonProps> = ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <Movingbox constrain={120}>
-          <Thumbnail src={image} />
-        </Movingbox>
+        <Thumbnail src={image} />
       </ButtonComponent>
     </motion.div>
   );
@@ -50,20 +48,18 @@ const CarouselIndicator: React.FC<CarouselIndicatorProps> = ({
   connector,
 }) => (
   <IndicatorWrapper>
-    <Movingbox constrain={80}>
-      <IndicatorInner>
-        <IndicatorText>
-          {`${active + 1} ${connector} ${total}`}
-        </IndicatorText>
+    <IndicatorInner>
+      <IndicatorText>
+        {`${active + 1} ${connector} ${total}`}
+      </IndicatorText>
 
-        {Array.from(Array(total)).map((_item, i) => (
-          <Indicator 
-            key={i}
-            active={active === i}
-          />
-        ))}
-      </IndicatorInner>
-    </Movingbox>
+      {Array.from(Array(total)).map((_item, i) => (
+        <Indicator 
+          key={i}
+          active={active === i}
+        />
+      ))}
+    </IndicatorInner>
   </IndicatorWrapper>
 );
 

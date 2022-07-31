@@ -1,20 +1,20 @@
 
 export const BackgroundAnimation = {
   enter: {
-    opacity: 0.3,
+    opacity: 0.4,
   },
   center: {
     opacity: 1,
   },
   exit: {
-    opacity: 0.3,
+    opacity: 0.4,
   }
 };
 
 export const ImageAnimation = {
   enter: {
     opacity: 0,
-    y: 'calc(var(--direction) * -10%)',
+    y: -100
   },
   center: {
     opacity: 1,
@@ -25,19 +25,19 @@ export const ImageAnimation = {
   },
   exit: {
     opacity: 0,
-    y: 'calc(var(--direction) * 10%)',
+    y: -150
   },
 };
 
 export const TitleAnimation = {
   enter: {
     opacity: 0,
-    y: 'calc(var(--direction) * -10%)',
+    y: 100,
     x: '-50%',
   },
   center: {
     opacity: 1,
-    y: '-0%',
+    y: 0,
     x: '-50%',
     transition: {
       delay: 0.4
@@ -45,7 +45,7 @@ export const TitleAnimation = {
   },
   exit: {
     opacity: 0,
-    y: 'calc(var(--direction) * 10%)',
+    y: 150,
     x: '-50%',
   },
 }

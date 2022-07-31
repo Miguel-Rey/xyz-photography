@@ -12,12 +12,12 @@ export const CoverBox = styled.div`
 `;
 
 export const BackgroundImage = styled.img`
-  width: 100vw;
-  height: 100vh;
+  width: 120vw;
+  height: 120vh;
 
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -10vw;
+  left: -10vh;
   z-index: -1;
 
   filter: blur(150px);
@@ -32,7 +32,8 @@ export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
+  position: relative;
 `
 
 export const HighlightedImage = styled.img`
@@ -40,6 +41,8 @@ export const HighlightedImage = styled.img`
 
   border: 1px solid #000000;
   border-radius: 10px;
+
+  will-change: transform;
 `;
 
 export const TextMask = styled.div`
@@ -50,6 +53,8 @@ export const TextMask = styled.div`
   top: 50%;
 
   background: white;
+
+  will-change: transform;
 `
 
 export const Title = styled.h2`
@@ -73,25 +78,32 @@ export const Title = styled.h2`
 
   color: transparent;
   -webkit-text-stroke: 1px white;
+
+
+  will-change: transform;
 `;
 
 export const TitleWhite = styled(Title)`
   color: white;
   z-index: 9;
-  clip-path: polygon(21% 0%, 79% 0%, 79% 100%, 21% 100%);
+  clip-path: polygon(20.9% 0%, 79.1% 0%, 79.1% 100%, 20.9% 100%);
+
+  will-change: transform;
 `;
 
 export const Subtitle = styled.div`
   width: 100%;
   
   position: absolute;
-  bottom: 27%;
+  bottom: 24%;
   left: 50%;
 
   transform: translateX(-50%);
   z-index: 10;
 
   white-space: nowrap;
+
+  will-change: transform;
 `
 
 export const LinkBoxWrapper = styled.div`

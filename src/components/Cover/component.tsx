@@ -40,35 +40,33 @@ const Cover: React.FC<CoverProps> = (props) => {
         as={motion.div}
         whileHover={{ scale: 1.05 }}
       >
-        <Movingbox constrain={40}>
-          <Title
-            as={motion.h2}
-            variants={TitleAnimation}
-          > 
-            { title }
-          </Title>
+        <Title
+          as={motion.h2}
+          variants={TitleAnimation}
+        > 
+          { title }
+        </Title>
 
-          <TitleWhite
-            as={motion.h2}
-            variants={TitleAnimation}
-          > 
-            { title }
-          </TitleWhite>
+        <TitleWhite
+          as={motion.h2}
+          variants={TitleAnimation}
+        > 
+          { title }
+        </TitleWhite>
 
-          <Subtitle
-            as={motion.h2}
-            variants={SubtitleAnimation}
-          >
-            {subtitle}
-          </Subtitle>
+        <Subtitle
+          as={motion.h2}
+          variants={SubtitleAnimation}
+        >
+          {subtitle}
+        </Subtitle>
 
-          <HighlightedImage
-            as={motion.img}
-            variants={ImageAnimation}
-            src={image.src} 
-            alt={image.alt}
-          />
-        </Movingbox>
+        <HighlightedImage
+          as={motion.img}
+          variants={ImageAnimation}
+          src={image.src} 
+          alt={image.alt}
+        />
       </TextBox>
 
       {shouldRenderLinkBox && (
@@ -76,14 +74,12 @@ const Cover: React.FC<CoverProps> = (props) => {
           as={motion.div}
           variants={LinkBoxAnimation}
         >
-          <Movingbox constrain={40}>
-            <LinkBox 
-              author={author}
-              date={date}
-              anchor={anchor}
-              href={href}
-            />
-          </Movingbox>
+          <LinkBox 
+            author={author}
+            date={date}
+            anchor={anchor}
+            href={href}
+          />
         </LinkBoxWrapper>
       )}
 
